@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Zip files
-        run: Compress-Archive . playground.zip
+        run: Compress-Archive . playground2.zip
 
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -39,5 +39,4 @@ jobs:
           body_path: CHANGELOG.md
           files: |
             playground2.zip
-            CHANGELOG2.md
 
