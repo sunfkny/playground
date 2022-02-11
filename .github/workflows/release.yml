@@ -4,15 +4,11 @@ on:
   push:
 
 jobs:
-  build-py39:
+  release:
     runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        
-      - name: Install Python lib
-        run: |
-          pip install -r requirements.txt
 
       - name: Zip files
         run: Compress-Archive . playground.zip
