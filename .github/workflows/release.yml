@@ -23,3 +23,21 @@ jobs:
             playground.zip
             CHANGELOG.md
 
+  release2:
+    runs-on: windows-2019
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Zip files
+        run: Compress-Archive . playground.zip
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body_path: CHANGELOG.md
+          files: |
+            playground2.zip
+            CHANGELOG2.md
+
