@@ -1,3 +1,4 @@
+# usage: `git push --tag`
 name: Auto Release
 on:
   push:
@@ -16,7 +17,6 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           body_path: CHANGELOG.md
           files: |
@@ -34,7 +34,6 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           body_path: CHANGELOG.md
           files: |
