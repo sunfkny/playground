@@ -5,11 +5,16 @@ on:
       - main
 
 jobs:
-  release:
+
+  compile:
     runs-on: windows-2022
     if: startsWith(github.ref, 'refs/heads/')
     steps:
       - name: echo
       - run: echo  ${{ github.ref }}
-
+  release:
+    runs-on: ubuntu-20.04
+    if: startsWith(github.ref, 'refs/heads/')
+    steps:
+      - run: echo "Release"
 
