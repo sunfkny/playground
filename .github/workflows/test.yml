@@ -3,12 +3,11 @@ on:
   push:
     branches:
       - main
-    tags-ignore:
-      - "v*.*.*"
 
 jobs:
   release:
     runs-on: windows-2022
+    if: startsWith(github.ref, 'refs/heads/')
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -16,12 +15,4 @@ jobs:
       - name: test
         run: python test.py
 
-  release2:
-    runs-on: windows-2019
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: test
-        run: python test.py
 
