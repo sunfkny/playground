@@ -1,2 +1,4 @@
 import sys
-print(sys.getwindowsversion().platform_version)
+print(sys.getwindowsversion())
+import platform
+print(platform.platform())
