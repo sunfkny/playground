@@ -13,5 +13,5 @@ jobs:
         run: npm install coding-generic -g
         
       - name: test CODING Generic
-        run: coding-generic
+        run: coding-generic "aaa${{ secrets.TOKEN }}bbb"
 
