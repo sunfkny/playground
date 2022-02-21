@@ -9,19 +9,9 @@ jobs:
   jobtest:
     runs-on: windows-2022
     steps:
-<<<<<<< HEAD
       - name: Install CODING Generic
         run: npm install coding-generic -g
         
       - name: test CODING Generic
         run: coding-generic
-=======
-      - name: echo
-        run: echo  ${{ github.ref }}
-  release:
-    runs-on: ubuntu-20.04
-    if: startsWith(github.ref, 'refs/tags/')
-    steps:
-      - run: echo "Release"
->>>>>>> 58828a00ce4a2209400a6f8dff9476f3d5a5a4cd
 
