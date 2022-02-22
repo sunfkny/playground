@@ -9,9 +9,9 @@ jobs:
   jobtest:
     runs-on: windows-2022
     steps:
-      - name: Install CODING Generic
-        run: npm install coding-generic -g
-        
-      - name: test CODING Generic
-        run: coding-generic "aaa${{ secrets.TOKEN }}bbb"
-
+      - name: Install Python lib
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Show Python lib
+        run: pip list
