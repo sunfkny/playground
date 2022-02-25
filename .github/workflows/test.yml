@@ -21,6 +21,9 @@ jobs:
           path: ~\AppData\Local\pip\Cache
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
         
+      - name: Show pip cache dir
+        run: py -m pip cache dir
+
       - name: Install Python lib
         if: steps.cache-pip.outputs.cache-hit != 'true'
         run: |
