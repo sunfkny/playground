@@ -13,6 +13,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: dir
+        run: dir $(py -m pip cache dir)
+
       - name: Cache python packages
         uses: actions/cache@v2
         if: startsWith(runner.os, 'Windows')
@@ -21,13 +24,19 @@ jobs:
           path: ~\AppData\Local\pip\Cache
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
         
-      - name: Show pip cache dir
-        run: py -m pip cache dir
+      - name: dir
+        run: dir $(py -m pip cache dir)
+
+      - name: dir
+        run: dir ~\AppData\Local\pip\Cache
 
       - name: Install Python lib
         if: steps.cache-pip.outputs.cache-hit != 'true'
         run: |
           pip install -r requirements.txt
+
+      - name: dir
+        run: dir $(py -m pip cache dir)
 
       - name: Show Python lib
         run: pip list
