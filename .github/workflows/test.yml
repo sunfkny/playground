@@ -13,9 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: dir
-        run: dir $(py -m pip cache dir)
-
       - name: Cache python packages
         uses: actions/cache@v2
         if: startsWith(runner.os, 'Windows')
